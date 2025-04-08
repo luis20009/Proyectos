@@ -34,7 +34,7 @@ class enemigo:
         if familiar.vida <= 0:
             familiar.daño = 0
             familiar.vida=0
-        print(f"{self.nombre} causo {self.daño} de daño a {personaje.nombre} y a {familiar.nombre}, ahora su vida es: {familiar.vida}")
+        print(f"{self.nombre} causo {self.daño} de daño a {personaje.nombre} y a {familiar.nombre}, ahora la vida de{familiar.nombre} es {familiar.vida}")
         print(f"la nueva vida de {personaje.nombre} es {personaje.vida}")
 class familiar:
     def __init__(self,daño,vida,nombre):
@@ -69,8 +69,7 @@ while heroe.vida>0 and villano.vida>0:
         borrador.system('cls') 
     if x==1:
         heroe.dañar(villano,mascota)
-        input("\nPresione enter para continuar: ")
-
+        input("\nPresione enter para continuar: ")     
     elif x==2:
         heroe.status(villano,mascota)
         input("\nPresione enter para continuar: ")
@@ -80,13 +79,11 @@ while heroe.vida>0 and villano.vida>0:
             print("Ya usate la habilidad, tienes que esperar un turno")
             potenciador.clear()
             x=int(input("\nQue quieres hacer\n1.Atacar\n2.Ver tu estado\n3.Habilidad especial\nIngrese su opcion: "))
-
             borrador.system('cls')
         heroe.plus()
         potenciador.append(1)
         input("\nPresione enter para continuar: ")
         borrador.system('cls')
-    villano.dañar(heroe,mascota)
     input("\nPresione enter para continuar: ")
     borrador.system('cls')
 if heroe.vida > 0:
