@@ -43,8 +43,13 @@ print(f"Presión arterial: {Clasificacion_pst(Palts, Paltd)}")
 rec = recomendaciones(IMC, Palts, Paltd, edad, fumar)
 if rec:
     print("\nRecomendaciones:")
+<<<<<<< HEAD
     for r in rec:
         print(f"- {r}")
+=======
+    for pene in rec:
+        print(f"- {pene}")
+>>>>>>> 349645557b0fafc1214cf75303c5ad0d8b5996ce
 else:
    print("Tienes buena condicion fisica")
 
