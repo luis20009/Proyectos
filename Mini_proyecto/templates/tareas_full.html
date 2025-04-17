@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <h1>Lista de Usuarios Registrados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Categoria:</th>
+                <th>Descripción:</th>
+                <th>💩:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarea in tareas %}
+            <tr>
+                <td> {{ tarea[0] }}</td>
+                <td>{{ tarea[1] }}</td>
+                <td>
+                    <!-- Formulario para eliminar la tarea -->
+                    <form action="/eliminar_tarea" method="POST" style="display:inline;">
+                        <input type="hidden" name="categoria" value="{{ tarea[0] }}">
+                        <input type="hidden" name="descripcion" value="{{ tarea[1] }}">
+                        <button type="submit" class="boton-eliminar">Eliminar</button>
+                    </form>
+                </td>  
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/homework">Volver a tareas</a>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    
+}
+.boton {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    z-index: 1000;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e6e9ed; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.boton:hover {
+    background-color: #007bff; /* Color al pasar el mouse */
+    color: #ddd;
+}
+
+.boton1{
+    position: absolute;
+    top: 10px;
+    left: 205px;
+    z-index: 1000;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e6e9ed; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.boton1:hover {
+    background-color: #007bff; /* Color al pasar el mouse */
+    color: #ddd;
+}
+h1 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4facfe;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Cambia el cursor a una mano cuando está sobre un botón */
+    
+}
+
+button:hover {
+    background-color: #007bff; /* Color al pasar el mouse */
+    color: #ffffff;
+}
+/* Define el diseño del cursor */
+
+/* Personalización para elementos específicos */
+
+
+input {
+    cursor: text; /* Cambia el cursor a un cursor de texto dentro de campos de entrada */
+}
+
+ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(96, 96, 96, 0.2);
+    text-align: center;
+}
+.mensaje-error {
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb; /* Borde rojo */
+    padding: 5px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    
+}
+.mensaje-success {
+    background-color: #e3e3e3; /* Fondo rojo claro */
+    color: #1c723c; /* Texto rojo oscuro */
+    border: 1px solid #215e2d; /* Borde rojo */
+    padding: 5px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    width: 100%;
+    
+}

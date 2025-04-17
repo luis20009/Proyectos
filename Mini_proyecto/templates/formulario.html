@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mejora.css') }}">
+    
+</head>
+<body>
+    <form action="/registrar" method="POST">
+      <div id ="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <div>
+            {% for category, message in messages %}
+            <p class="mensaje-{{ category }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+      </div>
+      <script>
+        setTimeout(function() {
+            const flashMessages = document.getElementById('flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 2000); // Ocultar después de 5 segundos
+      </script>
+      
+   
+        <h1>Registro de Usuario</h1><br>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="correo">Correo:</label><br>
+        <input type="email" id="correo" name="correo" required><br><br>
+        <button type="submit">Registrar</button>
+    </form><br>
+    <a href="{{ url_for('mostrar_usuarios') }}" class="boton">Ver todos los usuarios</a>
+    <a href="{{ url_for('login') }}" class="boton1">INICIAR SESIÓN</a>
+    
+</body>
+</html>
