@@ -51,3 +51,89 @@ a {
 a:hover {
     background-color: #0056b3;
 }
+.boton {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    z-index: 1000;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e6e9ed; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.boton:hover {
+    background-color: #007bff; /* Color al pasar el mouse */
+    color: #ddd;
+}
+/* Estilo del formulario de importación */
+/* Estilo del formulario de importación */
+.form-importar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear los elementos a la izquierda */
+    position: absolute; /* Posicionar el formulario en la esquina */
+    top: 20px; /* Separación desde la parte superior */
+    right: 202px; /* Separación desde la derecha */
+    padding: 10px;
+    border: 1px solid #dddddd00;
+    border-radius: 8px;
+    background-color: #f9f9f900;
+    width: 300px; /* Reducir el ancho */
+}
+
+/* Estilo del label */
+.label-importar {
+    position: absolute;
+    top: 30px;
+    left: 200px;
+    z-index: 1000;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e6e9ed; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo del input de archivo */
+.input-archivo {
+ display: none;;
+   
+}
+
+/* Estilo del botón de importar */
+.boton-importar {
+    position: absolute;
+    top: 32px;
+    left: 450px;
+    z-index: 1000;
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #e6e9ed; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-importar:hover {
+    background-color: #0056b3;
+}

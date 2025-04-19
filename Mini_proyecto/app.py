@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, flash,session
-
+from flask import Flask, render_template, request, redirect, url_for, flash,session, make_response
+import json
 import sqlite3
 import os
 
@@ -238,7 +238,85 @@ def eliminar_users():
         conexion.close()
 
     return redirect(url_for('mostrar_login'))
+@app.route("/buscar_tarea", methods=['GET'])
+def buscar_tarea():
+    usuario_id = session.get('usuario_id')
+    query= request.args.get('query')
+    conexion=conectar()
+    try:
+        cursor = conexion.cursor()
+        cursor.execute("""
+                    SELECT categoria, descripcion 
+                    FROM tareas 
+                    WHERE usuario_id = ? AND (categoria LIKE ? OR descripcion LIKE ?)
+        """, (usuario_id, f"%{query}%", f"%{query}%"))
+        tareas = cursor.fetchall()
+        print(tareas)
+    finally:
+        conexion.close()
+    return render_template('tareas_full.html', tareas=tareas)
 
+@app.route('/exportar_tareas', methods=['GET'])
+def exportar_tareas():
+    usuario_id = session.get('usuario_id')
+    if not usuario_id:
+        flash("Debes iniciar sesión para realizar esta acción", "error")
+        return redirect(url_for('mostrar_login'))
+
+    # Obtener las tareas del usuario desde la base de datos
+    conexion = conectar()
+    try:
+        cursor = conexion.cursor()
+        cursor.execute("SELECT categoria, descripcion FROM tareas WHERE usuario_id = ?", (usuario_id,))
+        tareas = cursor.fetchall()
+    finally:
+        conexion.close()
+
+    # Convertir las tareas a formato JSON
+    tareas_json = [{"categoria": tarea[0], "descripcion": tarea[1]} for tarea in tareas]
+
+    # Crear una respuesta para descargar el archivo JSON
+    response = make_response(json.dumps(tareas_json, indent=4))
+    response.headers['Content-Type'] = 'application/json'
+    response.headers['Content-Disposition'] = 'attachment; filename=tareas.json'
+    return response
+
+
+@app.route('/importar_tareas', methods=['POST'])
+def importar_tareas():
+    usuario_id = session.get('usuario_id')
+    if not usuario_id:
+        flash("Debes iniciar sesión para realizar esta acción", "error")
+        return redirect(url_for('mostrar_login'))
+
+ 
+
+    archivo = request.files['archivo']
+ 
+
+    # Leer el archivo JSON
+    try:
+        tareas = json.load(archivo)
+    except Exception as e:
+        flash("El archivo no tiene un formato válido", "error")
+        return redirect(url_for('mostrar_homework'))
+
+    # Insertar las tareas en la base de datos
+    conexion = conectar()
+    try:
+        cursor = conexion.cursor()
+        for tarea in tareas:
+            categoria = tarea.get('categoria')
+            descripcion = tarea.get('descripcion')
+            if categoria and descripcion:
+                cursor.execute("INSERT INTO tareas (usuario_id, categoria, descripcion) VALUES (?, ?, ?)",
+                               (usuario_id, categoria, descripcion))
+        conexion.commit()
+        flash("Tareas importadas exitosamente", "success")
+    finally:
+        conexion.close()
+
+    return redirect(url_for('mostrar_homework'))
 if __name__ == '__main__':
     app.run(debug=True)
 # Ruta para mostrar los usuarios registrados

@@ -6,8 +6,23 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}">
 </head>
 <body>
-    <h1>Lista de Usuarios Registrados</h1>
+   <form action="/importar_tareas" method="POST" enctype="multipart/form-data" class="form-importa">
+    <label for="archivo" class="label-importar">Seleccionar archivo JSON</label>
+    <input type="file" id="archivo" name="archivo" class="input-archivo" accept=".json" required>
+    <button type="submit" class="boton-importar">Importar Tareas</button>
+    
+</form>
+<a href="/exportar_tareas" class="boton">Exportar Tareas</a>
+
+<br><br><br><br>
     <table>
+        <h1>Lista de Usuarios Registrados</h1>
+        <form action="/buscar_tarea" method="GET">
+            <input type="text" name="query" placeholder="Buscar tarea..." required>
+             <button type="submit">Buscar</button>
+             
+         </form>
+         <br>
         <thead>
             <tr>
                 <th>Categoria:</th>
