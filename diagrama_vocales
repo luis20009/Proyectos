@@ -1,0 +1,21 @@
+digraph {
+	A [label=Inicio]
+	B [label="lista = ['a', 'e', 'i', 'o', 'u']"]
+	C [label="a = 0"]
+	D [label="c = input(\"Ingrese una cadena: \")"]
+	E [label="Para cada i en c"]
+	F [label="¿i en lista?"]
+	G [label="a += 1"]
+	H [label="Imprimir \"La cantidad de vocales es:\", a"]
+	I [label=Fin]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G [label="Sí"]
+	F -> E [label=No constraint=true]
+	G -> E
+	E -> H [label="Fin del ciclo"]
+	H -> I
+}
